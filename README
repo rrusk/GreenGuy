@@ -1,0 +1,112 @@
+/* File: README */
+
+/**************************************************************************
+ 
+			 CSc 405/505 Project
+
+			GreenGuy Cartoon Maker
+
+		      Submitted by Raymond Rusk
+			    August 3, 1997
+			Student Number 9413799
+
+***************************************************************************/
+
+			  Problem Definition
+
+  The goal of this project was to develop a "Cartoon Maker" program
+patterned after the commercial products "Batman and Robin Cartoon
+Maker", "Spider-Man Cartoon Maker" and "X-Men Cartoon Maker" from
+Knowledge Adventure.  This program is written in C and makes use of
+the freely-available libsx library.
+
+  The cartoon characters provided are based on stuffed toy dinosaurs
+that my children call "Green Guy", "Blue Guy" and "Yellow Guy".  These
+toys have been used as background for many of their drawings, stories
+and imaginary games.
+
+  The basic program incorporates a two-dimensional freehand drawing
+capability with the ability to add pre-designed characters.  Cartoon
+text captions can be added to the scenes.  A couple of example
+cartoons created by my seven year-old son are included.
+
+
+			 The GUI-Description
+
+  The GUI includes tools for picking characters that will appear in
+the scene.  These tools are accessible from around the edges of the
+sketchpad and are labelled with bit-mapped images making their purpose
+visually intuitive.
+
+  In addition to the pre-designed characters, the program has a simple
+two-dimensional paint capability with a user interface similar to
+programs like Xpaint or Xfig.  Users can create characters that can be
+stored for later inclusion as pre-designed props in other cartoons.
+In fact all of the pre-designed characters were created using the
+built-in paint tools.
+
+
+			    The To-Do List
+
+Unfortunately the list of incomplete features is still extensive.  In
+order of relative importance, from most urgent to least urgent, they
+are:
+
+1.  Additional backgrounds and other props.  The top priority on my
+children's wish-list are pre-drawn "bad guy" characters.  In addition,
+it would be nice to provide pre-drawn backgrounds with different
+weather conditions.  For instance, the ability to select rain, snow,
+hail, or volcanic ash wafting down from the top of the screen.
+
+2.  The ability to create a composite object so that it can be moved,
+reflected and rotated as a unit.  At the moment, when the pre-drawn
+characters are dragged, their eyes and mouths have to be moved
+separately.
+
+3.  Redesign of the editing tool.  The existing capability is very
+similar to that developed in Assignment #1.  This approach needs to be
+augmented by an ability to insert, move and delete vertices.  The
+vertices should be highlighted with boxes that can be grabbed.  The
+edit button should become a menu incorporating the clear function, the
+move function and the delete function.  Each mode, in particular the
+delete mode, should be highlighted with a special cursor font like
+"XC_pirate".
+
+4.  Provide a tool that will scale and rotate any selected object from
+the application model.
+
+5.  Postscript print capability.  This allows cartoons to be
+assembled into a book for "flip-page" animation.
+
+6.  When a user selects quit, provide a warning when the drawing has
+unsaved modifications.  At present, the user is asked for confirmation
+whenever they quit or clear the screen.
+
+7.  The program needs an "undo" button to back out of the most recent
+modifications.
+
+8.  Extend the application model so that bit-mapped objects can be
+added to the linked-list.  Presently, the linked-list holds line,
+rectangle, ellipse, circle, polyline and text objects.
+
+9.  Add a cartoon caption tool that is more easily used than typing
+text, placing an ellipse around it and then using the polyline tool to
+attach the caption to a character.
+
+10.  Add a "movie" capability that will allow characters to move across
+the background.  This can be implemented by having the user drag
+primary characters.  Their positions as a function of time are
+recorded for playback, providing a simple form of animation.
+
+11.  Add the ability to record audio and play it back as part of the
+cartoon animation.  This requires synchronizing video and audio.
+User interaction can be via tape-recorder-like buttons.
+
+12.  Add buttons giving access to a library of "trace" pictures that
+can be placed in the background to do color-fills or for tracing
+around to make stills or animations.
+
+13.  Update the linked list "IsEqual" function so that vertex lists and
+character strings are included in comparisons.
+
+/* End of File: README */
