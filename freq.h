@@ -1,1 +1,1 @@
-char *GetFile(char *path);
+char *SimpleGetFile(char *path);

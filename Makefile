@@ -1,8 +1,10 @@
 CC = gcc
-CFLAGS = -g -I/project/X11/include -I/home/csc405/include
-LIBSX  = /home/csc405/lib/libsx.a
-LIBS   =  $(LIBSX) -lXaw -lXmu -lXext -lXt -lX11 -lm -lnsl -lsocket
-LDFLAGS = -L/project/X11/lib
+#CFLAGS = -g -I/project/X11/include -I/home/csc405/include
+#LIBSX  = /home/csc405/lib/libsx.a
+#LIBS   =  $(LIBSX) -lXaw -lXmu -lXext -lXt -lX11 -lm -lnsl -lsocket
+#LDFLAGS = -L/project/X11/lib
+LDFLAGS = -L/usr/lib
+LIBS   =  -lsx -lXaw -lXmu -lXext -lXt -lX11 -lm -lnsl #-lsocket
 
 All: GreenGuy permissions
 

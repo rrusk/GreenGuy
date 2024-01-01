@@ -698,7 +698,7 @@ static void LWscrollbarCBfunc(Widget w, float val, void *data)
 static void ScaleIncr(Widget w, void *data)
 {
   PgmData *GG = (PgmData *)data;
-  char lw[10];
+  char lw[20];
 
   if (GG->multiplier < MAX_MULT) {
     GG->multiplier += 1;
@@ -711,7 +711,7 @@ static void ScaleIncr(Widget w, void *data)
 static void ScaleDecr(Widget w, void *data)
 {
   PgmData *GG = (PgmData *)data;
-  char lw[10];
+  char lw[20];
 
   if (GG->multiplier > MIN_MULT) {
     GG->multiplier -= 1;
@@ -1194,7 +1194,7 @@ static void FileLoad(Widget w, void *data)
   char *word;
 
   if (GG->FileName == NULL)
-    fname = GetFile(NULL);
+    fname = SimpleGetFile(NULL);
   else
     fname = GG->FileName;
   if(fname) {
@@ -1377,7 +1377,7 @@ static void FileSave(Widget w, void *data)
   char *fname;
   char buffer[STR_SIZ];
   
-  fname = GetFile(NULL);
+  fname = SimpleGetFile(NULL);
   if(fname) {
     if ((fp = fopen(fname,"r")) != NULL) {         /* Don't allow the user  */
       sprintf(buffer, "Over-write %s?\n", fname);  /* to accidentally over- */
@@ -1441,7 +1441,7 @@ int init_display(int argc, char **argv, PgmData *GG)
   Widget WscaleLabel, WscaleIncr, WscaleDecr, Wreverse;
   Widget Wfill, LWLabel, LWScrollBar;
   Widget Wtext;
-  char tmp[10];
+  char tmp[30];
   int i;
 
   argc = OpenDisplay(argc, argv);
@@ -1478,7 +1478,7 @@ int init_display(int argc, char **argv, PgmData *GG)
 			      (void *)(LastColor+1));
   ColorMenu[2] = MakeMenuItem(ColorMenu[0], "Cancel", NULL, NULL);
 
-  for (i=FirstColor; i <= LastColor; i++)
+  for (long i=FirstColor; i <= LastColor; i++)
     Palette[i] = MakeButton(" ", ColorFunc, (void *)i);
 
   canvas = MakeDrawArea(GG->canvas_width, GG->canvas_height, redisplay, GG);

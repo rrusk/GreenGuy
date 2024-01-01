@@ -1,6 +1,6 @@
 /* This file contains all routines for creating and managing a file
  * requestor.  The programmer's only interface to the file requestor
- * is the function GetFile().  See the description for that function
+ * is the function SimpleGetFile().  See the description for that function
  * for usage information (it's pretty trivial).
  *
  * Originally written by Allen Martin (amartin@cs.wpi.edu).
@@ -89,14 +89,14 @@ void free_dirlist(char **table);
 
 
 /*
- * GetFile() - This is the entry point to the file requestor.  A single
+ * SimpleGetFile() - This is the entry point to the file requestor.  A single
  *             argument is passed - the path name for the initial list.
  *             If this path name is passed as NULL, the current directory
  *             is used instead.  The function returns a character string
  *             that is the name of the selected file, path included.  If
  *             an error occurs, or the user selects CANCEL, NULL is returned.
  */
-char *GetFile(char *_path)
+char *SimpleGetFile(char *_path)
 {
   FReqData fdata;
   Widget w[8];
@@ -301,7 +301,7 @@ static void load_list(Widget w, char *string, int index, FReqData *fdata)
      if (fdata->fpath[strlen(fdata->fpath)-1] == '/')
        sprintf(newpath, "%s%s", fdata->fpath, string);
      else
-       sprintf(newpath, "%s/%s", fdata->fpath, string);
+       snprintf(newpath, MAXPATHLEN+1, "%s/%s", fdata->fpath, string);
    }
 
   old_dirlist = fdata->dirlist;
